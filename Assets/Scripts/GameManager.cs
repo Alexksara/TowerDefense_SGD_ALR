@@ -15,7 +15,8 @@ public class GameManager : MonoBehaviour
         else
         {
             Destroy(gameObject);
-        }playerHealth = GetComponent<Health>();
+        }
+        playerHealth = GetComponent<Health>();
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
