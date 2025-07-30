@@ -166,7 +166,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a88140a901172804388618d9fbfe4794, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FireCooldown: 1
+  FireCooldown: 0.2
+  enemiesInRange: []
   projectilePrefab: {fileID: 6559431295419843372, guid: a71c59f1bf1983c47b6cc3d6b7c9c50f, type: 3}
 --- !u!4 &4037276299174327818 stripped
 Transform:

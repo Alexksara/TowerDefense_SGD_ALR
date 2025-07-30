@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class CannonBall : Projectile
 {
+    [SerializeField] private int damage = 10;
     [SerializeField] private GameObject explosionPrefab;
 
     protected override void CollisionEffect(Collider other)

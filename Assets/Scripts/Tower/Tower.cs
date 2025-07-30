@@ -9,6 +9,7 @@ public abstract class Tower : MonoBehaviour
 
     [SerializeField]protected List<Enemy> enemiesInRange = new List<Enemy>();
     [SerializeField] protected GameObject projectilePrefab;
+    [SerializeField] protected Vector3 projectileOffset = new Vector3(0,1f);
 
     protected virtual void Update() 
     {
@@ -29,7 +30,7 @@ public abstract class Tower : MonoBehaviour
     {
         if (projectilePrefab != null)
         {
-            GameObject projectileInstance = Instantiate(projectilePrefab, this.transform.position, Quaternion.identity);
+            GameObject projectileInstance = Instantiate(projectilePrefab, this.transform.position + projectileOffset, Quaternion.identity);
             projectileInstance.GetComponent<Projectile>().SetTarget(target.transform);
         }
     }

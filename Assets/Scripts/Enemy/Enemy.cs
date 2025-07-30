@@ -28,6 +28,10 @@ public class Enemy : MonoBehaviour
                 ReachedEnd();
             }
         }
+        if(healthValue <= 0)
+        {
+            Destroy(this.gameObject);
+        }
     }
 
     private void ReachedEnd()
