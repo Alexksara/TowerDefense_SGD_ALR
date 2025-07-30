@@ -14,6 +14,7 @@ public class Arrow : Projectile
 
     protected override void CollisionEffect(Collider other)
     {
-        Destroy(other);
+        Debug.Log("Destroyed Enemy");
+        Destroy(other.gameObject);
     }
 }

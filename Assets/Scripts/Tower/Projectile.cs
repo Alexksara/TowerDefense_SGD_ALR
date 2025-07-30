@@ -41,7 +41,6 @@ public abstract class Projectile : MonoBehaviour
             Enemy enemy = other.GetComponent<Enemy>();
             if (enemy != null)
             {
-                Debug.Log("Destroyed Enemy");
                 CollisionEffect(other);
             }
         }
