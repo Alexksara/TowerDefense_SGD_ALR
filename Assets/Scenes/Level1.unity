@@ -3372,10 +3372,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   LevelWaveData:
-  - timeBeforeWave: 5
+  - timeBeforeWave: 0
     enemyData:
     - EnemyToSpawn: {fileID: 1024775334496580935, guid: d947cb00e3e4e7444b2a89170a3706bc, type: 3}
-      TimeBeforeSpawn: 1
+      TimeBeforeSpawn: 0
+      SpawnPoint: {fileID: 1333788859}
+      EndPoint: {fileID: 1515230039}
+    - EnemyToSpawn: {fileID: 1024775334496580935, guid: d947cb00e3e4e7444b2a89170a3706bc, type: 3}
+      TimeBeforeSpawn: 0.25
+      SpawnPoint: {fileID: 1333788859}
+      EndPoint: {fileID: 1515230039}
+    - EnemyToSpawn: {fileID: 1024775334496580935, guid: d947cb00e3e4e7444b2a89170a3706bc, type: 3}
+      TimeBeforeSpawn: 0.25
+      SpawnPoint: {fileID: 1333788859}
+      EndPoint: {fileID: 1515230039}
+    - EnemyToSpawn: {fileID: 1024775334496580935, guid: d947cb00e3e4e7444b2a89170a3706bc, type: 3}
+      TimeBeforeSpawn: 0.25
       SpawnPoint: {fileID: 1333788859}
       EndPoint: {fileID: 1515230039}
     - EnemyToSpawn: {fileID: 1024775334496580935, guid: d947cb00e3e4e7444b2a89170a3706bc, type: 3}
@@ -3383,7 +3395,7 @@ MonoBehaviour:
       SpawnPoint: {fileID: 1333788859}
       EndPoint: {fileID: 1515230039}
     - EnemyToSpawn: {fileID: 1024775334496580935, guid: d947cb00e3e4e7444b2a89170a3706bc, type: 3}
-      TimeBeforeSpawn: 5
+      TimeBeforeSpawn: 0.5
       SpawnPoint: {fileID: 1333788859}
       EndPoint: {fileID: 1515230039}
 --- !u!114 &883113515
@@ -3420,6 +3432,8 @@ MonoBehaviour:
       m_Flags: 0
     m_Flags: 0
   isPlacingTower: 0
+  isMouseOnTile: 0
+  towerPlacementHeightOffset: 0.2
 --- !u!1001 &888983333
 PrefabInstance:
   m_ObjectHideFlags: 0

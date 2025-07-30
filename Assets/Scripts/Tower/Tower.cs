@@ -5,22 +5,34 @@ using System.Collections.Generic;
 public abstract class Tower : MonoBehaviour
 {
     public float FireCooldown = 1f;
-
     protected float currentFireCooldown = 0f;
-    protected List<Enemy> enemiesInRange = new List<Enemy>();
 
-    protected virtual void Update()
+    [SerializeField]protected List<Enemy> enemiesInRange = new List<Enemy>();
+    [SerializeField] protected GameObject projectilePrefab;
+
+    protected virtual void Update() 
     {
-        currentFireCooldown -= Time.deltaTime;
-        Enemy closestEnemy = GetTargetEnemy();
-        if(closestEnemy != null && currentFireCooldown <= 0f)
+        if(enemiesInRange.Count > 0)
         {
-            FireAt(closestEnemy);
-            currentFireCooldown = FireCooldown;
+            currentFireCooldown -= Time.deltaTime;
+            Enemy targetEnemy = GetTargetEnemy();
+            if (targetEnemy != null && currentFireCooldown <= 0f)
+            {
+                FireAt(targetEnemy);
+                currentFireCooldown = FireCooldown;
+            }
         }
+        
     }
 
-    protected abstract void FireAt(Enemy target);
+    protected virtual void FireAt(Enemy target)
+    {
+        if (projectilePrefab != null)
+        {
+            GameObject projectileInstance = Instantiate(projectilePrefab, this.transform.position, Quaternion.identity);
+            projectileInstance.GetComponent<Projectile>().SetTarget(target.transform);
+        }
+    }
 
     protected abstract Enemy GetTargetEnemy();
 

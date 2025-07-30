@@ -1,15 +1,44 @@
+using NUnit.Framework;
+using System.Linq;
 using UnityEngine;
+using System.Collections.Generic;
 
 public class CannonTower : Tower
 {
-
-    protected override void FireAt(Enemy target)
-    {
-
-    }
-
     protected override Enemy GetTargetEnemy()
     {
-        return null;
+        ClearDestroyedEnemies();
+        Enemy closestEnemy = null;
+        if (enemiesInRange.Count > 0)
+        {
+            ClearDestroyedEnemies();
+            enemiesInRange = SortByPosition();
+
+            int middleNum = Mathf.CeilToInt((float)(enemiesInRange.Count / 2));
+            closestEnemy = enemiesInRange[middleNum];
+        }
+        return closestEnemy;
+
     }
+
+
+    private List<Enemy> SortByPosition()
+    {
+        List<Enemy> sortedEnemiesInRange = new List<Enemy>();
+        float enemyDistanceKey = float.MaxValue;
+        //sortedEnemiesInRange.Add(enemiesInRange[0]);
+        for (int i = 0; i < enemiesInRange.Count; i++)
+        {
+            enemyDistanceKey = Vector3.Distance(this.transform.position, enemiesInRange[i].transform.position);
+            int j = i - 1;
+
+            while (j >= 0 && Vector3.Distance(this.transform.position, enemiesInRange[j].transform.position) > enemyDistanceKey)
+            {
+                j--;
+            }
+            sortedEnemiesInRange.Insert(j + 1, enemiesInRange[i]);
+        }
+        return sortedEnemiesInRange;
+    }
+
 }

@@ -10,6 +10,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] private Transform endPoint;
     [SerializeField] private string animatorParam_isWalking;
     [SerializeField] private int damageValue = 10;
+    [SerializeField] private int healthValue = 100;
 
     private void Awake()
     {
@@ -26,9 +27,7 @@ public class Enemy : MonoBehaviour
             {
                 ReachedEnd();
             }
-            
         }
-       
     }
 
     private void ReachedEnd()
@@ -43,6 +42,12 @@ public class Enemy : MonoBehaviour
         endPoint = end;
         agent.SetDestination(endPoint.position);
         animator.SetBool(animatorParam_isWalking, true);
+    }
+
+    public void TakeDamage(int dmg)
+    {
+        healthValue -= dmg;
+        Debug.Log($"Took {dmg} damage health is now {healthValue}");
     }
     
 }
