@@ -8,7 +8,7 @@ public class HealthText : MonoBehaviour
     [SerializeField] TextMeshProUGUI text;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    void Awake()
     {
        if (health != null)
        {
