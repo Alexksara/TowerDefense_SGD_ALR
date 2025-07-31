@@ -8,24 +8,22 @@ public class CannonTower : Tower
     protected override Enemy GetTargetEnemy()
     {
         ClearDestroyedEnemies();
-        Enemy closestEnemy = null;
+        Enemy middleEnemy = null;
         if (enemiesInRange.Count > 0)
         {
-            ClearDestroyedEnemies();
             enemiesInRange = SortByPosition();
-
             int middleNum = Mathf.CeilToInt((float)(enemiesInRange.Count / 2));
-            closestEnemy = enemiesInRange[middleNum];
+            middleEnemy = enemiesInRange[middleNum];
         }
-        return closestEnemy;
+        return middleEnemy;
 
     }
-
-
+    //Summary
+    //
     private List<Enemy> SortByPosition()
     {
         List<Enemy> sortedEnemiesInRange = new List<Enemy>();
-        float enemyDistanceKey = float.MaxValue;
+        float enemyDistanceKey = 0f;
         //sortedEnemiesInRange.Add(enemiesInRange[0]);
         for (int i = 0; i < enemiesInRange.Count; i++)
         {
