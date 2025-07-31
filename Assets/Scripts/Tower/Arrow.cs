@@ -3,19 +3,15 @@ using static UnityEngine.GraphicsBuffer;
 
 public class Arrow : Projectile
 {
-    [SerializeField] private int damage = 10;
-    protected override void MoveTowards()
-    {
-        Vector3 direction = (target.position - this.transform.position).normalized;
-        transform.position += direction * speed * Time.deltaTime;
-        transform.forward = direction;
-    }
+    [SerializeField] private int M_damage = 10;
 
+    //Summary
+    //
     protected override void CollisionEffect(Collider other)
     {
         if(other.CompareTag("Enemy"))
         {
-            other.GetComponent<Enemy>().TakeDamage(damage);
+            other.GetComponent<Enemy>().TakeDamage(M_damage);
         }
         Destroy(this.gameObject);
     }

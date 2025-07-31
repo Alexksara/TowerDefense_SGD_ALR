@@ -2,24 +2,17 @@ using UnityEngine;
 
 public class CannonBall : Projectile
 {
-    [SerializeField] private int damage = 10;
-    [SerializeField] private GameObject explosionPrefab;
+    [SerializeField] private int M_damage = 10;
+    [SerializeField] private GameObject M_explosionPrefab;
 
     protected override void CollisionEffect(Collider other)
     {
         if (other.gameObject.CompareTag("Enemy"))
         {
-            other.gameObject.GetComponent<Enemy>().TakeDamage(damage);
+            other.gameObject.GetComponent<Enemy>().TakeDamage(M_damage);
             //Destroy(other.gameObject);
         }
-        Instantiate(explosionPrefab, this.transform.position, Quaternion.identity);
+        Instantiate(M_explosionPrefab, this.transform.position, Quaternion.identity);
         Destroy(this.gameObject);
     }
-    protected override void MoveTowards()
-    {
-        Vector3 direction = (target.position - this.transform.position).normalized;
-        transform.position += direction * speed * Time.deltaTime;
-        transform.forward = direction;
-    }
-
 } 
