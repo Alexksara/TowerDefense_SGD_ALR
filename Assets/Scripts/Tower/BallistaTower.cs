@@ -2,20 +2,24 @@ using UnityEngine;
 
 public class BallistaTower : Tower
 {
+    //Summary
+    // 
     protected override Enemy GetTargetEnemy()
     {
         ClearDestroyedEnemies();
-
         Enemy closestEnemy = null;
-        float closestDistance = float.MaxValue;
-        foreach (Enemy enemy in enemiesInRange)
+        if (enemiesInRange.Count > 0)
         {
-
-            float distanceToEnemy = Vector3.Distance(transform.position, enemy.transform.position);
-            if (distanceToEnemy < closestDistance)
+            float closestDistance = float.MaxValue;
+            foreach (Enemy enemy in enemiesInRange)
             {
-                closestDistance = distanceToEnemy;
-                closestEnemy = enemy;
+
+                float distanceToEnemy = Vector3.Distance(transform.position, enemy.transform.position);
+                if (distanceToEnemy < closestDistance)
+                {
+                    closestDistance = distanceToEnemy;
+                    closestEnemy = enemy;
+                }
             }
         }
         return closestEnemy;
