@@ -68,7 +68,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c244f94f6374a1742bf10d902f7773f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  M_explosionParticles: {fileID: 1237870669895136308, guid: 960d5c25a2b942f4a9e1c14877178d06, type: 3}
   M_damage: 30
   M_destroyTimer: 3
 --- !u!199 &-5031214828854607348

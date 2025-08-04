@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -57,14 +58,20 @@ public class TowerPlaceManager : MonoBehaviour
     {
         if(currentTowerPrefabToSpawn != towerPrefab)
         {
-            isPlacingTower = true;
             currentTowerPrefabToSpawn = towerPrefab;
-            if(towerPreview != null) // destroy previous preview 
+            if (GameManager.Instance.CompareMoney(currentTowerPrefabToSpawn.GetComponent<Tower>().CostToPlace))
             {
-                Destroy(towerPreview);
+                isPlacingTower = true;
+                
+                if (towerPreview != null) // destroy previous preview 
+                {
+                    Destroy(towerPreview);
+                }
+                towerPreview = Instantiate(currentTowerPrefabToSpawn);
+                towerPreview.GetComponent<Tower>().enabled = false;
             }
-            towerPreview = Instantiate(currentTowerPrefabToSpawn);
-            towerPreview.GetComponent<Tower>().enabled = false;
+
+            
         }
     }
 
@@ -74,8 +81,10 @@ public class TowerPlaceManager : MonoBehaviour
         {
             Instantiate(currentTowerPrefabToSpawn, towerPlacementPosition, Quaternion.identity);
             Destroy(towerPreview);
-            currentTowerPrefabToSpawn = null;
             isPlacingTower = false;
+            GameManager.Instance.AddMoney(-currentTowerPrefabToSpawn.GetComponent<Tower>().CostToPlace);
+            currentTowerPrefabToSpawn = null;
+
         }
         
     }

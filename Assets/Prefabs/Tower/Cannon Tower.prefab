@@ -172,6 +172,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   FireCooldown: 1
+  CostToPlace: 3
   M_enemiesInRange: []
   M_projectilePrefab: {fileID: 9065532241355637964, guid: 7b6beca3f67375b458cbcd18f2189a02, type: 3}
   M_projectileOffset: {x: 0, y: 1, z: 0}

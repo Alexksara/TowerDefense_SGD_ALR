@@ -141,6 +141,7 @@ MonoBehaviour:
   animatorParam_isWalking: isWalking
   damageValue: 10
   healthValue: 100
+  moneyValue: 1
 --- !u!136 &1084563897382604329
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -160,10 +161,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.125
+  m_Radius: 0.2
   m_Height: 0.5
   m_Direction: 1
-  m_Center: {x: 0, y: 0.3, z: 0}
+  m_Center: {x: 0, y: 0.4, z: 0}
 --- !u!54 &545887814300328988
 Rigidbody:
   m_ObjectHideFlags: 0

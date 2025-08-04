@@ -11,6 +11,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] private string animatorParam_isWalking;
     [SerializeField] private int damageValue = 10;
     [SerializeField] private int healthValue = 100;
+    [SerializeField] private int moneyValue = 1;
 
     private void Awake()
     {
@@ -30,6 +31,7 @@ public class Enemy : MonoBehaviour
         }
         if(healthValue <= 0)
         {
+            GameManager.Instance.AddMoney(moneyValue);
             Destroy(this.gameObject);
         }
     }
@@ -53,5 +55,13 @@ public class Enemy : MonoBehaviour
         healthValue -= dmg;
         Debug.Log($"Took {dmg} damage health is now {healthValue}");
     }
-    
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("End Point"))
+        {
+            ReachedEnd();
+        }
+    }
+
 }

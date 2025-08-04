@@ -5,6 +5,7 @@ using System.Collections.Generic;
 public abstract class Tower : MonoBehaviour
 {
     public float FireCooldown = 1f;
+    public int CostToPlace = 0;
     protected float M_currentFireCooldown = 0f;
 
     [SerializeField] protected List<Enemy> M_enemiesInRange = new List<Enemy>();

@@ -1,10 +1,14 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
-
     public Health playerHealth;
+
+    [SerializeField] private TextMeshProUGUI moneyText;
+    [SerializeField] private int currentMoney = 0;
 
     private void Awake()
     {
@@ -17,17 +21,31 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
         }
         playerHealth = GetComponent<Health>();
+        AddMoney(0);
     }
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public void AddMoney(int m)
     {
-        
+        currentMoney += m;
+        moneyText.text = $"${currentMoney}";
     }
 
-    // Update is called once per frame
-    void Update()
+    public int GetMoney()
     {
-        
+        return currentMoney;
+    }
+
+    public bool CompareMoney(int cost)
+    {
+        if(currentMoney >= cost)
+        {
+            return true;
+        }
+        return false;
+    }
+
+    public void Restart()
+    {
+        SceneManager.SetActiveScene(SceneManager.GetActiveScene());
     }
 }
