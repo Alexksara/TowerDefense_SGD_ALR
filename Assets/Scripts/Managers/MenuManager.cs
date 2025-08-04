@@ -5,54 +5,34 @@ using UnityEngine.SceneManagement;
 
 public class MenuManager : MonoBehaviour
 {
+    // Summary 
+    // primary is what is enabled on load, secondary is disabled
+    
+    [SerializeField] protected GameObject m_primaryScreen;
+    [SerializeField] protected GameObject m_secondaryScreen;
 
-    [SerializeField] private GameObject m_titleScreen;
-    [SerializeField] private GameObject m_mainMenu;
+    [SerializeField] protected bool m_primaryEnabled = true;
+    [SerializeField] protected bool m_secondaryEnabled = false;
 
-    [SerializeField] private bool m_titleEnabled = true;
-    [SerializeField] private bool m_mainMenuEnabled = false;
+    
 
-    [SerializeField] private InputAction menuInputs;
 
-    private void OnEnable()
+    public void SwitchToSecondary()
     {
-        menuInputs.Enable();
-        menuInputs.performed += ToMainMenu;
+        m_primaryScreen.SetActive(false);
+        m_primaryEnabled = false;
+        m_secondaryScreen.SetActive(true);
+        m_secondaryEnabled = true;
     }
-    private void OnDisable()
-    {
-        menuInputs.performed -= ToMainMenu;
-        menuInputs.Disable();
-    }
-
-    private void ToMainMenu(InputAction.CallbackContext context)
-    {
-        DisableTitle();
-    }
-
-    public void DisableTitle()
-    {
-        m_titleScreen.SetActive(false);
-        m_titleEnabled = false;
-        EnableMainMenu();
-    }
-
-    public void EnableMainMenu()
-    {
-        m_mainMenu.SetActive(true);
-        m_mainMenuEnabled = true;
-    }
-
-    public void DisableMainMenu()
-    {
-        m_mainMenu.SetActive(false);
-        m_mainMenuEnabled = false;
-    }
-
 
     public void StartGame()
     {
         SceneManager.LoadSceneAsync(1);
+    }
+
+    public void MainMenu()
+    {
+        SceneManager.LoadSceneAsync(0);
     }
 
     public void ExitGame()

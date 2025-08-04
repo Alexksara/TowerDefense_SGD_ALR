@@ -21,18 +21,21 @@ public class Health : MonoBehaviour
 
     public bool IsDead()
     {
-        return currentHealth > 0;
+        return currentHealth <= 0;
     }    
 
     
 
     public void TakeDamage(int damageamount)
     {
-        if(currentHealth > 0)
-        { 
-            currentHealth = Mathf.Max(currentHealth - damageamount, 0);
-            OnHealthChanged?.Invoke(currentHealth, maxHealth);
+        
+        currentHealth = Mathf.Max(currentHealth - damageamount, 0);
+        OnHealthChanged?.Invoke(currentHealth, maxHealth);
+        
+        if(IsDead())
+        {
+            GameManager.Instance.GameLoss();
         }
-        Debug.Log($"Current Health: {currentHealth}");
+            Debug.Log($"Current Health: {currentHealth}");
     }
 }

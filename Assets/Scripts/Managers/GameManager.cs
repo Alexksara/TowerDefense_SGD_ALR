@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance { get; private set; }
     public Health playerHealth;
 
+    [SerializeField] private MenuManager menuManager;
     [SerializeField] private TextMeshProUGUI moneyText;
     [SerializeField] private int currentMoney = 0;
 
@@ -47,5 +48,10 @@ public class GameManager : MonoBehaviour
     public void Restart()
     {
         SceneManager.SetActiveScene(SceneManager.GetActiveScene());
+    }
+
+    public void GameLoss()
+    {
+        menuManager.SwitchToSecondary();
     }
 }

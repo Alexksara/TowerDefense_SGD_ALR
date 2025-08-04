@@ -909,23 +909,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 945931131}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bbe5234e727035f4b9ccdd4ee46f0557, type: 3}
+  m_Script: {fileID: 11500000, guid: a5513e52ba5e2454a88ee0e827bbbb2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_titleScreen: {fileID: 656610939}
-  m_mainMenu: {fileID: 353946978}
-  m_titleEnabled: 1
-  m_mainMenuEnabled: 0
+  m_primaryScreen: {fileID: 656610939}
+  m_secondaryScreen: {fileID: 353946978}
+  m_primaryEnabled: 1
+  m_secondaryEnabled: 0
   menuInputs:
     m_Name: Menu Inputs
     m_Type: 0
     m_ExpectedControlType: 
-    m_Id: d7ab8f0f-bffb-4db4-99b7-8ffceb25d8ff
+    m_Id: 5bc0ba47-c16d-4050-930c-f12787e49c4c
     m_Processors: 
     m_Interactions: 
     m_SingletonActionBindings:
     - m_Name: 
-      m_Id: eac83b7a-080b-4dcc-a121-e57049fdb3cf
+      m_Id: f18626dd-0892-4fda-ab88-aa84235c5c78
       m_Path: <Keyboard>/space
       m_Interactions: 
       m_Processors: 
