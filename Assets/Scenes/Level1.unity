@@ -4300,7 +4300,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   LevelWaveData:
-  - timeBeforeWave: 0
+  - timeBeforeWave: 5
     enemyData:
     - EnemyToSpawn: {fileID: 1024775334496580935, guid: d947cb00e3e4e7444b2a89170a3706bc, type: 3}
       TimeBeforeSpawn: 0.5
@@ -4420,6 +4420,7 @@ MonoBehaviour:
       TimeBeforeSpawn: 0.5
       SpawnPoint: {fileID: 1333788859}
       EndPoint: {fileID: 1515230039}
+  spawnedEnemies: []
 --- !u!114 &883113515
 MonoBehaviour:
   m_ObjectHideFlags: 0

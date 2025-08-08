@@ -50,7 +50,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 30652398ad5777e4f97fe9d05bbb4e72, type: 3}
       propertyPath: m_Name
-      value: tile-end-roundPrefab
+      value: TileStart
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
