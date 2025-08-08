@@ -1,6 +1,7 @@
 using NUnit.Framework;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 [System.Serializable]
@@ -21,18 +22,26 @@ public struct WaveData
 public class WaveManager : MonoBehaviour
 {
     public List<WaveData> LevelWaveData;
+    private bool lastWave = false;
+    [SerializeField] private List<GameObject> spawnedEnemies = new List<GameObject>();
+
+
+    private void Update()
+    {
+        if(lastWave)
+        {
+            RemoveDestroyedEnemies();
+            if (!spawnedEnemies.Any())
+            {
+                GameManager.Instance.GameWon();
+            }
+        }
+    }
 
     void Start()
     {
         StartLevel();
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void StartLevel()
     {
         StartCoroutine(StartWave());
@@ -49,11 +58,24 @@ public class WaveManager : MonoBehaviour
                 SpawnEnemy(currentEnemyToSpawn.EnemyToSpawn, currentEnemyToSpawn.SpawnPoint, currentEnemyToSpawn.EndPoint);
             }
         }
+        lastWave = true;
     }
 
     public void SpawnEnemy(GameObject enemyPrefab, Transform spawnPoint, Transform endPoint)
     {
         GameObject enemyInstance = Instantiate(enemyPrefab,spawnPoint.position,spawnPoint.rotation);
         enemyInstance.GetComponent<Enemy>().Initialize(endPoint);
+        spawnedEnemies.Add(enemyInstance);
+    }
+
+    private void RemoveDestroyedEnemies()
+    {
+        for (int i = 0; i < spawnedEnemies.Count; ++i)
+        {
+            if (spawnedEnemies[i] == null)
+            {
+                spawnedEnemies.RemoveAt(i);
+            }
+        }
     }
 }

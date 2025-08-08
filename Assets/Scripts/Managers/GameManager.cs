@@ -6,8 +6,9 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
     public Health playerHealth;
+    public int currentLevel = 1;
 
-    [SerializeField] private MenuManager menuManager;
+    [SerializeField] private GameMenuManager gameMenuManager;
     [SerializeField] private TextMeshProUGUI moneyText;
     [SerializeField] private int currentMoney = 0;
 
@@ -45,13 +46,20 @@ public class GameManager : MonoBehaviour
         return false;
     }
 
-    public void Restart()
-    {
-        SceneManager.SetActiveScene(SceneManager.GetActiveScene());
-    }
-
     public void GameLoss()
     {
-        menuManager.SwitchToSecondary();
+        gameMenuManager.LoseMenu();
+        gameMenuManager.SwitchToSecondary();
+    }
+
+    public void GameWon()
+    {
+        gameMenuManager.WinMenu();
+        gameMenuManager.SwitchToSecondary();
+    }
+
+    public void IncrimentLevel()
+    {
+        currentLevel++;
     }
 }
