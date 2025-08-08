@@ -42,7 +42,26 @@ public abstract class Tower : MonoBehaviour
 
     //Summary
     // each tower has their own logic to determine which enemy to shoot
-    protected abstract Enemy GetTargetEnemy();
+    protected virtual Enemy GetTargetEnemy()
+    {
+        ClearDestroyedEnemies();
+        Enemy closestEnemy = null;
+        if (M_enemiesInRange.Count > 0)
+        {
+            float closestDistance = float.MaxValue;
+            foreach (Enemy enemy in M_enemiesInRange)
+            {
+
+                float distanceToEnemy = Vector3.Distance(transform.position, enemy.transform.position);
+                if (distanceToEnemy < closestDistance)
+                {
+                    closestDistance = distanceToEnemy;
+                    closestEnemy = enemy;
+                }
+            }
+        }
+        return closestEnemy;
+    }
 
     //Summary
     //removes null spots (destroyed enemies) from the list of enemies
