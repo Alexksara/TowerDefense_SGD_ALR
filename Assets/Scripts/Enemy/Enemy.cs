@@ -5,7 +5,7 @@ using UnityEngine.AI;
 
 public class Enemy : MonoBehaviour
 {
-    private NavMeshAgent agent;
+    private NavMeshAgent navAgent;
     private Animator animator;
     [SerializeField] private Transform endPoint;
     [SerializeField] private string animatorParam_isWalking;
@@ -15,24 +15,23 @@ public class Enemy : MonoBehaviour
 
     private void Awake()
     {
-        agent = GetComponent<NavMeshAgent>();
+        navAgent = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(!agent.pathPending && agent.remainingDistance <= agent.stoppingDistance)
+        if(!navAgent.pathPending && navAgent.remainingDistance <= navAgent.stoppingDistance)
         {
-            if(agent.hasPath || agent.pathStatus == NavMeshPathStatus.PathComplete)
+            if(navAgent.hasPath || navAgent.pathStatus == NavMeshPathStatus.PathComplete)
             {
                 ReachedEnd();
             }
         }
         if(healthValue <= 0)
         {
-            GameManager.Instance.AddMoney(moneyValue);
-            Destroy(this.gameObject);
+            Die();
         }
     }
 
@@ -46,7 +45,7 @@ public class Enemy : MonoBehaviour
     public void Initialize(Transform end)
     {
         endPoint = end;
-        agent.SetDestination(endPoint.position);
+        navAgent.SetDestination(endPoint.position);
         animator.SetBool(animatorParam_isWalking, true);
     }
 
@@ -64,4 +63,14 @@ public class Enemy : MonoBehaviour
         }
     }
 
+    public void ChangeSpeed(float addSpeed)
+    {
+        navAgent.speed += addSpeed;
+    }
+
+    protected virtual void Die()
+    {
+        GameManager.Instance.AddMoney(moneyValue);
+        Destroy(this.gameObject);
+    }
 }

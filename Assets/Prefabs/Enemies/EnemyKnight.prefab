@@ -90,10 +90,13 @@ PrefabInstance:
       addedObject: {fileID: 5017428124642764795}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 1c19abebaa7336745976eaba289376fd, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 4435948144025558584}
+      addedObject: {fileID: 6358849035960992322}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 1c19abebaa7336745976eaba289376fd, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 6358849035960992322}
+      addedObject: {fileID: 1945797258478646465}
+    - targetCorrespondingSourceObject: {fileID: -5151492872390713093, guid: 1c19abebaa7336745976eaba289376fd, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5363253662777518814}
   m_SourcePrefab: {fileID: 100100000, guid: 1c19abebaa7336745976eaba289376fd, type: 3}
 --- !u!4 &1564333996505305326 stripped
 Transform:
@@ -137,7 +140,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 3.5
+  m_Speed: 4.5
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -172,23 +175,6 @@ CapsuleCollider:
   m_Height: 0.9
   m_Direction: 1
   m_Center: {x: 0, y: 0.6, z: 0}
---- !u!114 &4435948144025558584
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2259599501228865970}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a7fe1810c966a241a31b0b0be3ebcf0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  endPoint: {fileID: 0}
-  animatorParam_isWalking: isWalking
-  damageValue: 25
-  healthValue: 100
-  moneyValue: 1
 --- !u!54 &6358849035960992322
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -216,6 +202,50 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1945797258478646465
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2259599501228865970}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae81ec1f149ebf84ba55a18401636821, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  endPoint: {fileID: 0}
+  animatorParam_isWalking: isWalking
+  damageValue: 10
+  healthValue: 100
+  moneyValue: 2
+  bonusSpeed: 1
+--- !u!1 &3105483255019316248 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -5151492872390713093, guid: 1c19abebaa7336745976eaba289376fd, type: 3}
+  m_PrefabInstance: {fileID: 1412683427184395491}
+  m_PrefabAsset: {fileID: 0}
+--- !u!135 &5363253662777518814
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3105483255019316248}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 2
+  m_Center: {x: 0, y: 0.2, z: 0}
 --- !u!1001 &4808632055725795976
 PrefabInstance:
   m_ObjectHideFlags: 0
