@@ -56,6 +56,7 @@ public class WaveManager : MonoBehaviour
             {
                 yield return new WaitForSeconds(currentEnemyToSpawn.TimeBeforeSpawn);
                 SpawnEnemy(currentEnemyToSpawn.EnemyToSpawn, currentEnemyToSpawn.SpawnPoint, currentEnemyToSpawn.EndPoint);
+                GameManager.Instance.PlaySound();
             }
         }
         lastWave = true;

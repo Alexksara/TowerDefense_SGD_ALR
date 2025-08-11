@@ -78,4 +78,9 @@ public class GameManager : MonoBehaviour
         musicSource.volume = PlayerPrefs.GetFloat(m_musicVolumePrefName);
         soundSource.volume = PlayerPrefs.GetFloat(m_soundVolumePrefName);
     }
+
+    public void PlaySound()
+    {
+        soundSource.Play();
+    }
 }
