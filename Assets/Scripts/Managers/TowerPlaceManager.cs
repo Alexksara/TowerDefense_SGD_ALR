@@ -11,6 +11,9 @@ public class TowerPlaceManager : MonoBehaviour
     [SerializeField] private bool isPlacingTower = false;
     [SerializeField] private bool isMouseOnTile = false;
     [SerializeField] private float towerPlacementHeightOffset = .2f;
+    [SerializeField] private TowerUpgradeManager upgradeManager;
+
+
     private GameObject currentTowerPrefabToSpawn;
     private GameObject towerPreview;
     private Vector3 towerPlacementPosition;
@@ -56,10 +59,10 @@ public class TowerPlaceManager : MonoBehaviour
 
     public void StartPlacingTower(GameObject towerPrefab)
     {
-        if(currentTowerPrefabToSpawn != towerPrefab)
+        if(currentTowerPrefabToSpawn != towerPrefab && !upgradeManager.IsUpgrading)
         {
             currentTowerPrefabToSpawn = towerPrefab;
-            if (GameManager.Instance.DoIHaveSufficientMoney(currentTowerPrefabToSpawn.GetComponentInChildren<Tower>().CostToPlace))
+            if (GameManager.Instance.DoIHaveSufficientMoney(currentTowerPrefabToSpawn.GetComponent<Tower>().CostToPlace))
             {
                 isPlacingTower = true;
                 
@@ -68,7 +71,7 @@ public class TowerPlaceManager : MonoBehaviour
                     Destroy(towerPreview);
                 }
                 towerPreview = Instantiate(currentTowerPrefabToSpawn);
-                towerPreview.GetComponentInChildren<Tower>().enabled = false;
+                towerPreview.GetComponent<Tower>().enabled = false;
             }
 
             
@@ -82,7 +85,7 @@ public class TowerPlaceManager : MonoBehaviour
             Instantiate(currentTowerPrefabToSpawn, towerPlacementPosition, Quaternion.identity);
             Destroy(towerPreview);
             isPlacingTower = false;
-            GameManager.Instance.AddMoney(-currentTowerPrefabToSpawn.GetComponentInChildren<Tower>().CostToPlace);
+            GameManager.Instance.AddMoney(-currentTowerPrefabToSpawn.GetComponent<Tower>().CostToPlace);
             currentTowerPrefabToSpawn = null;
 
         }

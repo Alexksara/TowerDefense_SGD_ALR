@@ -33,14 +33,11 @@ public class TowerUpgradeManager : MonoBehaviour
     [SerializeField] private TowerPlaceManager m_towerPlaceManager;
     [SerializeField] private Camera m_mainCamera;
     [SerializeField] private GameMenuManager m_menuManager;
-    [SerializeField] private GameObject[] m_ballistaTowerUpgrades;
-    [SerializeField] private GameObject[] m_cannonTowerUpgrades;
-    [SerializeField] private GameObject[] m_catapultTowerUpgrades;
     [SerializeField] private GameObject m_upgradeMenu;
 
     [SerializeField] private List<UpgradeData> m_towerUpgradeData;
 
-    private bool m_isUpgraging = false;
+    private bool m_isUpgrading = false;
     private Towers m_towerTypeToUpgrade;
     private Tower m_selectedTowerToUpgrade;
 
@@ -64,12 +61,12 @@ public class TowerUpgradeManager : MonoBehaviour
     private void OnUpgradeTower(InputAction.CallbackContext context)
     {
         Debug.Log("Clicked");
-        if (!m_towerPlaceManager.IsPlacingTower && !m_isUpgraging)
+        if (!m_towerPlaceManager.IsPlacingTower && !m_isUpgrading)
         {
             Ray ray = m_mainCamera.ScreenPointToRay(Mouse.current.position.ReadValue());
-            if (Physics.Raycast(ray, out RaycastHit hitInfo, Mathf.Infinity, m_towerMask))
+            if (Physics.Raycast(ray, out RaycastHit hitInfo, Mathf.Infinity))
             {
-                m_isUpgraging = true;
+                m_isUpgrading = true;
                 m_selectedTowerToUpgrade = hitInfo.collider.GetComponent<Tower>();
                 switch (m_selectedTowerToUpgrade)
                 {
@@ -101,14 +98,23 @@ public class TowerUpgradeManager : MonoBehaviour
 
                 default: Debug.Log("Unable to upgrade"); break;
             }
-            Destroy(m_selectedTowerToUpgrade.transform.parent.gameObject);
+            GameManager.Instance.AddMoney(-m_selectedTowerToUpgrade.CostToUpgrade);
+            Destroy(m_selectedTowerToUpgrade.gameObject);
+            StopUpgrading();
         }
 
         return;
     }
 
+    public bool IsUpgrading
+    {get
+        {
+            return m_isUpgrading;
+        }
+    }
+
     public void StopUpgrading()
     {
-        m_isUpgraging = false;
+        m_isUpgrading = false;
     }
 }

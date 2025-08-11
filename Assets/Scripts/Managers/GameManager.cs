@@ -62,12 +62,14 @@ public class GameManager : MonoBehaviour
     public void GameLoss()
     {
         gameMenuManager.LoseMenu();
+        Time.timeScale = 0;
         gameMenuManager.SwitchToSecondary();
     }
 
     public void GameWon()
     {
         gameMenuManager.WinMenu();
+        Time.timeScale = 0;
         gameMenuManager.SwitchToSecondary();
     }
 

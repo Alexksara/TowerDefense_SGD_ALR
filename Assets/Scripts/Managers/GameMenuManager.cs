@@ -17,6 +17,7 @@ public class GameMenuManager : MenuManager
     public void WinMenu()
     {
         PlayerProgress();
+        HideUpgradeMenu();
         m_nextLevelButton.enabled = true;
         m_restartLevelButton.enabled = false;
         m_winText.enabled = true;
@@ -26,6 +27,7 @@ public class GameMenuManager : MenuManager
     public void LoseMenu()
     {
         PlayerProgress();
+        HideUpgradeMenu();
         m_nextLevelButton.enabled = false;
         m_restartLevelButton.enabled = true;
         m_winText.enabled = false;

@@ -4777,6 +4777,7 @@ MonoBehaviour:
   isPlacingTower: 0
   isMouseOnTile: 0
   towerPlacementHeightOffset: 0.2
+  upgradeManager: {fileID: 883113516}
 --- !u!114 &883113516
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4809,9 +4810,6 @@ MonoBehaviour:
   m_towerPlaceManager: {fileID: 883113515}
   m_mainCamera: {fileID: 330585545}
   m_menuManager: {fileID: 1608592411}
-  m_ballistaTowerUpgrades: []
-  m_cannonTowerUpgrades: []
-  m_catapultTowerUpgrades: []
   m_upgradeMenu: {fileID: 1867401830}
   m_towerUpgradeData:
   - lvlOneTower: {fileID: 3696498494590414000, guid: e216a45a75234c446bd848efe714ef1c, type: 3}

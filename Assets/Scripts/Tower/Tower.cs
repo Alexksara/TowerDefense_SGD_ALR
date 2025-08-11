@@ -13,13 +13,9 @@ public abstract class Tower : MonoBehaviour
     [SerializeField] protected List<Enemy> M_enemiesInRange = new List<Enemy>();
     [SerializeField] protected GameObject M_projectilePrefab;
     [SerializeField] protected Vector3 M_projectileOffset = new Vector3(0,1f);
+    [SerializeField] protected GameObject m_turret;
 
     private Enemy m_targetEnemy;
-
-
-    private void Start()
-    {
-    }
 
     protected virtual void Update() 
     {
@@ -29,7 +25,7 @@ public abstract class Tower : MonoBehaviour
             Enemy targetEnemy = GetTargetEnemy();
             if (targetEnemy != null)
             {
-                transform.LookAt(targetEnemy.transform.position);
+                m_turret.transform.LookAt(targetEnemy.transform.position);
                 if (M_currentFireCooldown <= 0f)
                 {
                     FireAt(targetEnemy);
