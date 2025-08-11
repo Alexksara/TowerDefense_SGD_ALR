@@ -11,7 +11,6 @@ public class GameMenuManager : MenuManager
     [SerializeField] private Button m_nextLevelButton;
     [SerializeField] private Button m_restartLevelButton;
     //[SerializeField] private TextMeshProUGUI m
-
     public void WinMenu()
     {
         m_nextLevelButton.enabled = true;
@@ -39,4 +38,5 @@ public class GameMenuManager : MenuManager
         SceneManager.SetActiveScene(SceneManager.GetSceneAt(GameManager.Instance.currentLevel));
         
     }
+
 }

@@ -10,19 +10,13 @@ public class MenuManager : MonoBehaviour
     
     [SerializeField] protected GameObject m_primaryScreen;
     [SerializeField] protected GameObject m_secondaryScreen;
-
-    [SerializeField] protected bool m_primaryEnabled = true;
-    [SerializeField] protected bool m_secondaryEnabled = false;
-
     
 
 
     public void SwitchToSecondary()
     {
         m_primaryScreen.SetActive(false);
-        m_primaryEnabled = false;
         m_secondaryScreen.SetActive(true);
-        m_secondaryEnabled = true;
     }
 
     public void StartGame()

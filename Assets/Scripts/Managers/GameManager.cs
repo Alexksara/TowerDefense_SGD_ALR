@@ -12,6 +12,14 @@ public class GameManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI moneyText;
     [SerializeField] private int currentMoney = 0;
 
+
+    [SerializeField] private AudioSource musicSource;
+    [SerializeField] private AudioSource soundSource;
+
+    private const string m_masterVolumePrefName = "Master Volume";
+    private const string m_musicVolumePrefName = "Music Volume";
+    private const string m_soundVolumePrefName = "Sound Volume";
+
     private void Awake()
     {
         if(Instance == null)
@@ -24,6 +32,7 @@ public class GameManager : MonoBehaviour
         }
         playerHealth = GetComponent<Health>();
         AddMoney(0);
+        LoadVolumeSettings();
     }
 
     public void AddMoney(int m)
@@ -61,5 +70,12 @@ public class GameManager : MonoBehaviour
     public void IncrimentLevel()
     {
         currentLevel++;
+    }
+
+    private void LoadVolumeSettings()
+    {
+        AudioListener.volume = PlayerPrefs.GetFloat(m_masterVolumePrefName);
+        musicSource.volume = PlayerPrefs.GetFloat(m_musicVolumePrefName);
+        soundSource.volume = PlayerPrefs.GetFloat(m_soundVolumePrefName);
     }
 }
