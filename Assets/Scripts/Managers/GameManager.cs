@@ -50,7 +50,7 @@ public class GameManager : MonoBehaviour
         return currentMoney;
     }
 
-    public bool CompareMoney(int cost)
+    public bool DoIHaveSufficientMoney(int cost)
     {
         if(currentMoney >= cost)
         {

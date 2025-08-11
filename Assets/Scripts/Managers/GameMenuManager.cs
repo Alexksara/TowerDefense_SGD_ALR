@@ -8,6 +8,8 @@ public class GameMenuManager : MenuManager
     [SerializeField] private TextMeshProUGUI m_winText;
     [SerializeField] private TextMeshProUGUI m_loseText;
     [SerializeField] private TextMeshProUGUI m_playerProgress;
+    [SerializeField] private GameObject m_upgradeUI;
+    [SerializeField] private Image m_upgradeImage;
 
     [SerializeField] private Button m_nextLevelButton;
     [SerializeField] private Button m_restartLevelButton;
@@ -40,6 +42,16 @@ public class GameMenuManager : MenuManager
         GameManager.Instance.IncrimentLevel();
         SceneManager.SetActiveScene(SceneManager.GetSceneAt(GameManager.Instance.currentLevel));
         
+    }
+
+    public void ShowUpgradeMenu(Sprite towerImage)
+    {
+        m_upgradeImage.sprite = towerImage;
+        m_upgradeUI.SetActive(true);
+    }
+    public void HideUpgradeMenu()
+    {
+        m_upgradeUI.SetActive(false);
     }
 
     private void PlayerProgress()

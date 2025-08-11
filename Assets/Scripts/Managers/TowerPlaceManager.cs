@@ -59,7 +59,7 @@ public class TowerPlaceManager : MonoBehaviour
         if(currentTowerPrefabToSpawn != towerPrefab)
         {
             currentTowerPrefabToSpawn = towerPrefab;
-            if (GameManager.Instance.CompareMoney(currentTowerPrefabToSpawn.GetComponent<Tower>().CostToPlace))
+            if (GameManager.Instance.DoIHaveSufficientMoney(currentTowerPrefabToSpawn.GetComponentInChildren<Tower>().CostToPlace))
             {
                 isPlacingTower = true;
                 
@@ -68,7 +68,7 @@ public class TowerPlaceManager : MonoBehaviour
                     Destroy(towerPreview);
                 }
                 towerPreview = Instantiate(currentTowerPrefabToSpawn);
-                towerPreview.GetComponent<Tower>().enabled = false;
+                towerPreview.GetComponentInChildren<Tower>().enabled = false;
             }
 
             
@@ -82,10 +82,17 @@ public class TowerPlaceManager : MonoBehaviour
             Instantiate(currentTowerPrefabToSpawn, towerPlacementPosition, Quaternion.identity);
             Destroy(towerPreview);
             isPlacingTower = false;
-            GameManager.Instance.AddMoney(-currentTowerPrefabToSpawn.GetComponent<Tower>().CostToPlace);
+            GameManager.Instance.AddMoney(-currentTowerPrefabToSpawn.GetComponentInChildren<Tower>().CostToPlace);
             currentTowerPrefabToSpawn = null;
 
         }
         
+    }
+
+    public bool IsPlacingTower 
+    { get 
+        {
+            return isPlacingTower; 
+        } 
     }
 }
