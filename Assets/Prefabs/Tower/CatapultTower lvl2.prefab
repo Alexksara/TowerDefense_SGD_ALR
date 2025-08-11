@@ -118,8 +118,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FireCooldown: 3
   CostToPlace: 3
-  CostToUpgrade: 5
-  CurrentLevel: 1
+  CostToUpgrade: 4
+  CurrentLevel: 2
   M_enemiesInRange: []
   M_projectilePrefab: {fileID: 7805070304503525948, guid: 11a3b7faead723f4996ba5fdf878bc73, type: 3}
   M_projectileOffset: {x: 0, y: 1, z: 0}

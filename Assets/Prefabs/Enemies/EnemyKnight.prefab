@@ -216,10 +216,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   endPoint: {fileID: 0}
   animatorParam_isWalking: isWalking
-  damageValue: 10
-  healthValue: 100
+  damageValue: 25
+  healthValue: 80
   moneyValue: 2
-  bonusSpeed: 1
+  bonusSpeed: 5
 --- !u!1 &3105483255019316248 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -5151492872390713093, guid: 1c19abebaa7336745976eaba289376fd, type: 3}

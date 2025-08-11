@@ -181,10 +181,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d83ab062fa3c17d4aa5e0afa166df6b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FireCooldown: 3
+  FireCooldown: 2
   CostToPlace: 3
   CostToUpgrade: 5
-  CurrentLevel: 1
+  CurrentLevel: 3
   M_enemiesInRange: []
   M_projectilePrefab: {fileID: 7805070304503525948, guid: 11a3b7faead723f4996ba5fdf878bc73, type: 3}
   M_projectileOffset: {x: 0, y: 1, z: 0}

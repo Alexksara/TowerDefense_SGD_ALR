@@ -140,7 +140,7 @@ MonoBehaviour:
   endPoint: {fileID: 0}
   animatorParam_isWalking: isWalking
   damageValue: 10
-  healthValue: 100
+  healthValue: 50
   moneyValue: 1
 --- !u!136 &1084563897382604329
 CapsuleCollider:
