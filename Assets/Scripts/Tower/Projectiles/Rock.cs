@@ -5,7 +5,7 @@ public class Rock : Projectile
 
     protected override void CollisionEffect(Collider other)
     {
-        Destroy(other.gameObject);
+        other.GetComponent<Enemy>().Die();
         Destroy(this.gameObject);
     }
 }

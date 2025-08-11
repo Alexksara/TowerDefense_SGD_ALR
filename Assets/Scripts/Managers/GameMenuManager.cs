@@ -7,12 +7,14 @@ public class GameMenuManager : MenuManager
 {
     [SerializeField] private TextMeshProUGUI m_winText;
     [SerializeField] private TextMeshProUGUI m_loseText;
+    [SerializeField] private TextMeshProUGUI m_playerProgress;
 
     [SerializeField] private Button m_nextLevelButton;
     [SerializeField] private Button m_restartLevelButton;
     //[SerializeField] private TextMeshProUGUI m
     public void WinMenu()
     {
+        PlayerProgress();
         m_nextLevelButton.enabled = true;
         m_restartLevelButton.enabled = false;
         m_winText.enabled = true;
@@ -21,6 +23,7 @@ public class GameMenuManager : MenuManager
 
     public void LoseMenu()
     {
+        PlayerProgress();
         m_nextLevelButton.enabled = false;
         m_restartLevelButton.enabled = true;
         m_winText.enabled = false;
@@ -37,6 +40,11 @@ public class GameMenuManager : MenuManager
         GameManager.Instance.IncrimentLevel();
         SceneManager.SetActiveScene(SceneManager.GetSceneAt(GameManager.Instance.currentLevel));
         
+    }
+
+    private void PlayerProgress()
+    {
+        m_playerProgress.text = $"You defeated {GameManager.Instance.enemiesKilled} enemies! \tYou compleated {GameManager.Instance.wavesCompleted} waves!";
     }
 
 }

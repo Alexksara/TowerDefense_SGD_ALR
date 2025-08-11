@@ -68,9 +68,10 @@ public class Enemy : MonoBehaviour
         navAgent.speed += addSpeed;
     }
 
-    protected virtual void Die()
+    public virtual void Die()
     {
         GameManager.Instance.AddMoney(moneyValue);
+        GameManager.Instance.IncrimentEnemiesKilled();
         Destroy(this.gameObject);
     }
 }

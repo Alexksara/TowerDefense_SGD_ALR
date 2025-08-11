@@ -29,7 +29,7 @@ public class EnemyKnight : Enemy
         }
     }
 
-    protected override void Die()
+    public override void Die()
     {
         ClearBonusList();
         base.Die();
@@ -37,10 +37,13 @@ public class EnemyKnight : Enemy
 
     private void ClearBonusList()
     {
-        foreach (Enemy enemy in m_enemiesToBuff)
+        for(int i = 0;i< m_enemiesToBuff.Count;i++)
         {
-            enemy.ChangeSpeed(-bonusSpeed);
-            m_enemiesToBuff.Remove(enemy);
+            if(m_enemiesToBuff[i] != null && i< m_enemiesToBuff.Count)
+            {
+                m_enemiesToBuff[i].ChangeSpeed(-bonusSpeed);
+                m_enemiesToBuff.Remove(m_enemiesToBuff[i]);
+            }
         }
     }
 }

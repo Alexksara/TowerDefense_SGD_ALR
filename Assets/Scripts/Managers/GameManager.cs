@@ -7,6 +7,8 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance { get; private set; }
     public Health playerHealth;
     public int currentLevel = 1;
+    public int enemiesKilled = 0;
+    public int wavesCompleted = 0;
 
     [SerializeField] private GameMenuManager gameMenuManager;
     [SerializeField] private TextMeshProUGUI moneyText;
@@ -19,6 +21,8 @@ public class GameManager : MonoBehaviour
     private const string m_masterVolumePrefName = "Master Volume";
     private const string m_musicVolumePrefName = "Music Volume";
     private const string m_soundVolumePrefName = "Sound Volume";
+
+    
 
     private void Awake()
     {
@@ -82,5 +86,15 @@ public class GameManager : MonoBehaviour
     public void PlaySound()
     {
         soundSource.Play();
+    }
+
+    public void IncrimentEnemiesKilled()
+    {
+        enemiesKilled++;
+    }
+
+    public void IncrementWavesCompleted()
+    {
+        wavesCompleted++;
     }
 }

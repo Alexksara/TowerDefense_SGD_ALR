@@ -58,6 +58,7 @@ public class WaveManager : MonoBehaviour
                 SpawnEnemy(currentEnemyToSpawn.EnemyToSpawn, currentEnemyToSpawn.SpawnPoint, currentEnemyToSpawn.EndPoint);
                 GameManager.Instance.PlaySound();
             }
+            GameManager.Instance.IncrementWavesCompleted();
         }
         lastWave = true;
     }
