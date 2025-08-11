@@ -6,26 +6,38 @@ public abstract class Tower : MonoBehaviour
 {
     public float FireCooldown = 1f;
     public int CostToPlace = 0;
-    protected float M_currentFireCooldown = 0f;
+    [SerializeField] protected float M_currentFireCooldown = 0f;
 
     [SerializeField] protected List<Enemy> M_enemiesInRange = new List<Enemy>();
     [SerializeField] protected GameObject M_projectilePrefab;
     [SerializeField] protected Vector3 M_projectileOffset = new Vector3(0,1f);
 
+    private Transform m_turret;
+    private Enemy m_targetEnemy;
+
+
+    private void Start()
+    {
+        m_turret = GetComponentInChildren<Transform>();
+    }
 
     protected virtual void Update() 
     {
-        if(M_enemiesInRange.Count > 0)
+        M_currentFireCooldown -= Time.deltaTime;
+        if (M_enemiesInRange.Count > 0)
         {
-            M_currentFireCooldown -= Time.deltaTime;
             Enemy targetEnemy = GetTargetEnemy();
-            if (targetEnemy != null && M_currentFireCooldown <= 0f)
+            if (targetEnemy != null)
             {
-                FireAt(targetEnemy);
-                M_currentFireCooldown = FireCooldown;
+                m_turret.LookAt(targetEnemy.transform.position);
+                if (M_currentFireCooldown <= 0f)
+                {
+                    FireAt(targetEnemy);
+                    M_currentFireCooldown = FireCooldown;
+                }
             }
+
         }
-        
     }
 
     //Summary

@@ -3,6 +3,7 @@ using UnityEngine;
 [RequireComponent (typeof(Collider))]
 public abstract class Projectile : MonoBehaviour
 {
+    [SerializeField] private const string enemyTag = "Enemy";
     [SerializeField] protected float M_speed = 8f;
     [SerializeField] protected float M_lifetime = 3f;
     protected Transform M_target;
@@ -46,14 +47,14 @@ public abstract class Projectile : MonoBehaviour
     //when hitting the enemy we make sure its the target, and that its an enemy, then call its collision then destroy the projectile
     private void OnTriggerEnter(Collider other)
     {
-        if ((other.transform == M_target))
+        if ((other.transform == M_target || other.CompareTag(enemyTag)))
         {
             Enemy enemy = other.GetComponent<Enemy>();
             if (enemy != null)
             {
                 CollisionEffect(other);
             }
+            Destroy(this.gameObject);
         }
-        Destroy(this.gameObject);
     }
 }
