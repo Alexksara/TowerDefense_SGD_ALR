@@ -66,15 +66,19 @@ public class TowerUpgradeManager : MonoBehaviour
             Ray ray = m_mainCamera.ScreenPointToRay(Mouse.current.position.ReadValue());
             if (Physics.Raycast(ray, out RaycastHit hitInfo, Mathf.Infinity))
             {
-                m_isUpgrading = true;
+                
                 m_selectedTowerToUpgrade = hitInfo.collider.GetComponent<Tower>();
-                switch (m_selectedTowerToUpgrade)
+                if(m_selectedTowerToUpgrade != null)
                 {
-                    case BallistaTower: Debug.Log("ballista"); m_towerTypeToUpgrade = Towers.BallistaTower; break;
-                    case CannonTower: Debug.Log("Cannon");m_towerTypeToUpgrade = Towers.CannonTower; break;
-                    case CatapultTower: Debug.Log("Catapult");m_towerTypeToUpgrade = Towers.CatapultTower; break;
+                    m_isUpgrading = true;
+                    switch (m_selectedTowerToUpgrade)
+                    {
+                        case BallistaTower: Debug.Log("ballista"); m_towerTypeToUpgrade = Towers.BallistaTower; break;
+                        case CannonTower: Debug.Log("Cannon");m_towerTypeToUpgrade = Towers.CannonTower; break;
+                        case CatapultTower: Debug.Log("Catapult");m_towerTypeToUpgrade = Towers.CatapultTower; break;
+                    }
+                        m_menuManager.ShowUpgradeMenu(m_towerUpgradeData[((int)m_towerTypeToUpgrade)].towerImage);
                 }
-                m_menuManager.ShowUpgradeMenu(m_towerUpgradeData[((int)m_towerTypeToUpgrade)].towerImage);
 
 
             }

@@ -22,16 +22,16 @@ public struct WaveData
 public class WaveManager : MonoBehaviour
 {
     public List<WaveData> LevelWaveData;
-    private bool lastWave = false;
-    [SerializeField] private List<GameObject> spawnedEnemies = new List<GameObject>();
+    private bool m_lastWave = false;
+    [SerializeField] private List<GameObject> m_spawnedEnemies = new List<GameObject>();
 
 
     private void Update()
     {
-        if(lastWave)
+        if(m_lastWave)
         {
             RemoveDestroyedEnemies();
-            if (!spawnedEnemies.Any())
+            if (!m_spawnedEnemies.Any())
             {
                 GameManager.Instance.GameWon();
             }
@@ -60,23 +60,23 @@ public class WaveManager : MonoBehaviour
             }
             GameManager.Instance.IncrementWavesCompleted();
         }
-        lastWave = true;
+        m_lastWave = true;
     }
 
     public void SpawnEnemy(GameObject enemyPrefab, Transform spawnPoint, Transform endPoint)
     {
         GameObject enemyInstance = Instantiate(enemyPrefab,spawnPoint.position,spawnPoint.rotation);
         enemyInstance.GetComponent<Enemy>().Initialize(endPoint);
-        spawnedEnemies.Add(enemyInstance);
+        m_spawnedEnemies.Add(enemyInstance);
     }
 
     private void RemoveDestroyedEnemies()
     {
-        for (int i = 0; i < spawnedEnemies.Count; ++i)
+        for (int i = 0; i < m_spawnedEnemies.Count; ++i)
         {
-            if (spawnedEnemies[i] == null)
+            if (m_spawnedEnemies[i] == null)
             {
-                spawnedEnemies.RemoveAt(i);
+                m_spawnedEnemies.RemoveAt(i);
             }
         }
     }
