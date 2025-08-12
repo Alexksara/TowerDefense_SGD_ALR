@@ -11,15 +11,15 @@ public class GameMenuManager : MenuManager
     [SerializeField] private GameObject m_upgradeUI;
     [SerializeField] private Image m_upgradeImage;
 
-    [SerializeField] private Button m_nextLevelButton;
-    [SerializeField] private Button m_restartLevelButton;
+    [SerializeField] private GameObject m_nextLevelButton;
+    [SerializeField] private GameObject m_restartLevelButton;
     //[SerializeField] private TextMeshProUGUI m
     public void WinMenu()
     {
         PlayerProgress();
         HideUpgradeMenu();
-        m_nextLevelButton.enabled = true;
-        m_restartLevelButton.enabled = false;
+        m_nextLevelButton.SetActive(true);
+        m_restartLevelButton.SetActive(false);
         m_winText.enabled = true;
         m_loseText.enabled = false;
     }
@@ -28,21 +28,24 @@ public class GameMenuManager : MenuManager
     {
         PlayerProgress();
         HideUpgradeMenu();
-        m_nextLevelButton.enabled = false;
-        m_restartLevelButton.enabled = true;
+        m_nextLevelButton.SetActive(false);
+        m_restartLevelButton.SetActive(true);
         m_winText.enabled = false;
         m_loseText.enabled = true;
     }
 
     public void Restart()
     {
-        SceneManager.SetActiveScene(SceneManager.GetActiveScene());
+        Debug.Log("trying to restart");
+        Time.timeScale = 1f;
+        SceneManager.LoadSceneAsync(GameManager.Instance.currentLevel);
     }
 
     public void NextLevel()
     {
         GameManager.Instance.IncrimentLevel();
-        SceneManager.SetActiveScene(SceneManager.GetSceneAt(GameManager.Instance.currentLevel));
+        Time.timeScale = 1f;
+        SceneManager.LoadSceneAsync(GameManager.Instance.currentLevel);
         
     }
 

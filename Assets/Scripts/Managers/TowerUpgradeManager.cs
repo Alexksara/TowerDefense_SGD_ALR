@@ -29,6 +29,7 @@ public class TowerUpgradeManager : MonoBehaviour
 {
     private const string m_raycastTowerName = "Tower";
     private const int m_towerMask = 7;
+    [SerializeField] private const float timeDelayOffset = .05f;
     [SerializeField] private InputAction m_upgradeInputs;
     [SerializeField] private TowerPlaceManager m_towerPlaceManager;
     [SerializeField] private Camera m_mainCamera;
@@ -68,7 +69,7 @@ public class TowerUpgradeManager : MonoBehaviour
             {
                 
                 m_selectedTowerToUpgrade = hitInfo.collider.GetComponent<Tower>();
-                if(m_selectedTowerToUpgrade != null)
+                if(m_selectedTowerToUpgrade != null && m_selectedTowerToUpgrade.CurrentLevel <= 2)
                 {
                     m_isUpgrading = true;
                     switch (m_selectedTowerToUpgrade)
@@ -104,7 +105,7 @@ public class TowerUpgradeManager : MonoBehaviour
             }
             GameManager.Instance.AddMoney(-m_selectedTowerToUpgrade.CostToUpgrade);
             Destroy(m_selectedTowerToUpgrade.gameObject);
-            StopUpgrading();
+            Invoke("StopUpgrading", timeDelayOffset);
         }
 
         return;
@@ -120,5 +121,6 @@ public class TowerUpgradeManager : MonoBehaviour
     public void StopUpgrading()
     {
         m_isUpgrading = false;
+        m_menuManager.HideUpgradeMenu();
     }
 }

@@ -12,6 +12,7 @@ public class TowerPlaceManager : MonoBehaviour
     [SerializeField] private bool isMouseOnTile = false;
     [SerializeField] private float towerPlacementHeightOffset = .2f;
     [SerializeField] private TowerUpgradeManager upgradeManager;
+    [SerializeField] private const float timeDelayOffset = .05f;
 
 
     private GameObject currentTowerPrefabToSpawn;
@@ -26,7 +27,7 @@ public class TowerPlaceManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (isPlacingTower)
+        if (isPlacingTower && towerPreview != null)
         {
             Ray ray = MainCamera.ScreenPointToRay(Mouse.current.position.ReadValue());
             if (Physics.Raycast(ray, out RaycastHit hitInfo,Mathf.Infinity,TileLayer))
@@ -84,12 +85,17 @@ public class TowerPlaceManager : MonoBehaviour
         {
             Instantiate(currentTowerPrefabToSpawn, towerPlacementPosition, Quaternion.identity);
             Destroy(towerPreview);
-            isPlacingTower = false;
+            Invoke("StopPlacingTower", timeDelayOffset);
             GameManager.Instance.AddMoney(-currentTowerPrefabToSpawn.GetComponent<Tower>().CostToPlace);
             currentTowerPrefabToSpawn = null;
 
         }
         
+    }
+
+    private void StopPlacingTower()
+    {
+        isPlacingTower = false;
     }
 
     public bool IsPlacingTower 

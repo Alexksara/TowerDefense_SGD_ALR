@@ -18,6 +18,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] private AudioSource musicSource;
     [SerializeField] private AudioSource soundSource;
 
+    [SerializeField] private TowerPlaceManager towerPlaceManager;
+    [SerializeField] private TowerUpgradeManager towerUpgradeManager;
+
     private const string m_masterVolumePrefName = "Master Volume";
     private const string m_musicVolumePrefName = "Music Volume";
     private const string m_soundVolumePrefName = "Sound Volume";
@@ -62,15 +65,23 @@ public class GameManager : MonoBehaviour
     public void GameLoss()
     {
         gameMenuManager.LoseMenu();
-        Time.timeScale = 0;
+        DisableGameplayInputs();
         gameMenuManager.SwitchToSecondary();
+        Time.timeScale = 0;
     }
 
     public void GameWon()
     {
         gameMenuManager.WinMenu();
-        Time.timeScale = 0;
+        DisableGameplayInputs();
         gameMenuManager.SwitchToSecondary();
+        Time.timeScale = 0;
+    }
+
+    private void DisableGameplayInputs()
+    {
+        towerPlaceManager.enabled = false;
+        towerUpgradeManager.enabled = false;
     }
 
     public void IncrimentLevel()
