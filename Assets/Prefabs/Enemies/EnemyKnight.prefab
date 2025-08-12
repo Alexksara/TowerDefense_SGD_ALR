@@ -217,8 +217,8 @@ MonoBehaviour:
   endPoint: {fileID: 0}
   animatorParam_isWalking: isWalking
   damageValue: 25
-  healthValue: 80
-  moneyValue: 2
+  healthValue: 60
+  moneyValue: 40
   bonusSpeed: 5
 --- !u!1 &3105483255019316248 stripped
 GameObject:

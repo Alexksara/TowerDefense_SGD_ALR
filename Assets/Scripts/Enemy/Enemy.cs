@@ -9,9 +9,9 @@ public class Enemy : MonoBehaviour
     private Animator animator;
     [SerializeField] private Transform endPoint;
     [SerializeField] private string animatorParam_isWalking;
-    [SerializeField] private int damageValue = 10;
-    [SerializeField] private int healthValue = 100;
-    [SerializeField] private int moneyValue = 1;
+    [SerializeField] protected int damageValue = 10;
+    [SerializeField] protected int healthValue = 100;
+    [SerializeField] protected int moneyValue = 1;
 
     private void Awake()
     {
@@ -35,7 +35,7 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    private void ReachedEnd()
+    protected virtual void ReachedEnd()
     {
         animator.SetBool(animatorParam_isWalking, false);
         GameManager.Instance.playerHealth.TakeDamage(damageValue);

@@ -294,7 +294,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 2
+  m_Radius: 3.5
   m_Center: {x: 0, y: 0.5, z: 0}
 --- !u!114 &410358376677589826
 MonoBehaviour:
@@ -308,13 +308,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a88140a901172804388618d9fbfe4794, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FireCooldown: 0.1
-  CostToPlace: 1
-  CostToUpgrade: 5
+  FireCooldown: 0.16
+  CostToPlace: 150
+  CostToUpgrade: 9999
   CurrentLevel: 3
   M_enemiesInRange: []
   M_projectilePrefab: {fileID: 6559431295419843372, guid: a71c59f1bf1983c47b6cc3d6b7c9c50f, type: 3}
-  M_projectileOffset: {x: 0, y: 0.5, z: 0}
+  M_projectileOffset: {x: 0, y: 0.8, z: 0}
   m_turret: {fileID: 1737560785927750472}
 --- !u!4 &4037276299174327818 stripped
 Transform:

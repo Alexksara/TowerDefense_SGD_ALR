@@ -122,11 +122,6 @@ PrefabInstance:
       addedObject: {fileID: 3227586128871039940}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 220aba6dbca361544a2c36ff637e4578, type: 3}
---- !u!1 &2547021723981918004 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 220aba6dbca361544a2c36ff637e4578, type: 3}
-  m_PrefabInstance: {fileID: 3429982677416546917}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2887658864173741454 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 220aba6dbca361544a2c36ff637e4578, type: 3}
@@ -234,7 +229,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 2
+  m_Radius: 2.5
   m_Center: {x: 0, y: 0.5, z: 0}
 --- !u!114 &7355355667515995897
 MonoBehaviour:
@@ -249,13 +244,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   FireCooldown: 1.5
-  CostToPlace: 3
-  CostToUpgrade: 5
+  CostToPlace: 500
+  CostToUpgrade: 9999
   CurrentLevel: 1
   M_enemiesInRange: []
   M_projectilePrefab: {fileID: 9065532241355637964, guid: d1aac6bc6cf540c40bc0fe476965b032, type: 3}
-  M_projectileOffset: {x: 0, y: 0.5, z: 0}
-  m_turret: {fileID: 2547021723981918004}
+  M_projectileOffset: {x: 0, y: 0.8, z: 0}
+  m_turret: {fileID: 9065532241355637964, guid: 9bffb65dc50af0341a772f930dc95da4, type: 3}
 --- !u!1001 &6214670327521643839
 PrefabInstance:
   m_ObjectHideFlags: 0

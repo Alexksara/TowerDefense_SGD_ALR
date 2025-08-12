@@ -171,8 +171,8 @@ MonoBehaviour:
   endPoint: {fileID: 0}
   animatorParam_isWalking: isWalking
   damageValue: 30
-  healthValue: 120
-  moneyValue: 3
+  healthValue: 100
+  moneyValue: 30
 --- !u!54 &2034088005470302869
 Rigidbody:
   m_ObjectHideFlags: 0

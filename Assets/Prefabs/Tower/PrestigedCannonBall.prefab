@@ -50,7 +50,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: baf8813fb070e20449c77b4d9c91c4a7, type: 3}
       propertyPath: m_Name
-      value: UpgradedCannonBallPrefab
+      value: PrestigedCannonBall
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -104,4 +104,4 @@ MonoBehaviour:
   M_speed: 8
   M_lifetime: 3
   M_damage: 70
-  M_explosionPrefab: {fileID: 175095567469243049, guid: 3a6e094b7fa331e45b512c72ceb97e81, type: 3}
+  M_explosionPrefab: {fileID: 175095567469243049, guid: 12ec659ae0c9bd8459b503705e6cf8e3, type: 3}
