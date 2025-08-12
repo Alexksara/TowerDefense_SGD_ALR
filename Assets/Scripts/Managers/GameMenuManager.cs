@@ -50,6 +50,11 @@ public class GameMenuManager : MenuManager
         
     }
 
+    public void GameCompleated()
+    {
+        m_playerProgress.text = "You beat the game!\n" + m_playerProgress.text;
+    }
+
     public void ShowUpgradeMenu(Sprite towerImage)
     {
         m_upgradeImage.sprite = towerImage;

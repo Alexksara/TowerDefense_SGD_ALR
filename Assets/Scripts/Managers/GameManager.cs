@@ -73,6 +73,10 @@ public class GameManager : MonoBehaviour
     public void GameWon()
     {
         gameMenuManager.WinMenu();
+        if(currentLevel >= 4)
+        {
+            gameMenuManager.GameCompleated();
+        }
         DisableGameplayInputs();
         gameMenuManager.SwitchToSecondary();
         Time.timeScale = 0;
