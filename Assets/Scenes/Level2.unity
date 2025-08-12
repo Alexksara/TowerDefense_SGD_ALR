@@ -8527,7 +8527,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerHealth: {fileID: 1603854432}
-  currentLevel: 1
+  currentLevel: 2
   enemiesKilled: 0
   wavesCompleted: 0
   gameMenuManager: {fileID: 1223676330}
@@ -10291,7 +10291,7 @@ MonoBehaviour:
   m_OverrideTileSize: 0
   m_TileSize: 256
   m_OverrideVoxelSize: 0
-  m_VoxelSize: 0.083333336
+  m_VoxelSize: 0.06666667
   m_MinRegionArea: 2
   m_NavMeshData: {fileID: 23800000, guid: f808abe3915630047ab3edbaf2025478, type: 2}
   m_BuildHeightMesh: 0
