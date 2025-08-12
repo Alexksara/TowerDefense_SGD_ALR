@@ -68,8 +68,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c244f94f6374a1742bf10d902f7773f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  M_damage: 30
+  M_damage: 25
   M_destroyTimer: 3
+  m_explosionTimer: 0.4
 --- !u!199 &-5031214828854607348
 ParticleSystemRenderer:
   serializedVersion: 6

@@ -193,7 +193,7 @@ MonoBehaviour:
   endPoint: {fileID: 0}
   animatorParam_isWalking: isWalking
   damageValue: 25
-  healthValue: 20
+  healthValue: 35
   moneyValue: 25
 --- !u!4 &3200602152395540051 stripped
 Transform:
