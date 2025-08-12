@@ -245,9 +245,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8169ed2875712b8409059d8bf5add69f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FireCooldown: 2
-  CostToPlace: 500
-  CostToUpgrade: 850
+  FireCooldown: 1.7
+  CostToPlace: 300
+  CostToUpgrade: 500
   CurrentLevel: 2
   M_enemiesInRange: []
   M_projectilePrefab: {fileID: 9065532241355637964, guid: d1aac6bc6cf540c40bc0fe476965b032, type: 3}

@@ -243,8 +243,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8169ed2875712b8409059d8bf5add69f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FireCooldown: 1.5
-  CostToPlace: 500
+  FireCooldown: 1
+  CostToPlace: 300
   CostToUpgrade: 9999
   CurrentLevel: 1
   M_enemiesInRange: []

@@ -116,7 +116,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d83ab062fa3c17d4aa5e0afa166df6b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FireCooldown: 1.5
+  FireCooldown: 1.2
   CostToPlace: 200
   CostToUpgrade: 325
   CurrentLevel: 2
