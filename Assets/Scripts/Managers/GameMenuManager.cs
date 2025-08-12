@@ -13,6 +13,7 @@ public class GameMenuManager : MenuManager
 
     [SerializeField] private GameObject m_nextLevelButton;
     [SerializeField] private GameObject m_restartLevelButton;
+    [SerializeField] private GameObject m_startWaveButton;
     //[SerializeField] private TextMeshProUGUI m
     public void WinMenu()
     {
@@ -59,9 +60,14 @@ public class GameMenuManager : MenuManager
         m_upgradeUI.SetActive(false);
     }
 
+    public void HideStartWave()
+    {
+        m_startWaveButton.SetActive(false);
+    }
+
     private void PlayerProgress()
     {
-        m_playerProgress.text = $"You defeated {GameManager.Instance.enemiesKilled} enemies! \tYou compleated {GameManager.Instance.wavesCompleted} waves!";
+        m_playerProgress.text = $"You defeated {GameManager.Instance.enemiesKilled} enemies! \nYou compleated {GameManager.Instance.wavesCompleted} waves!";
     }
 
 }

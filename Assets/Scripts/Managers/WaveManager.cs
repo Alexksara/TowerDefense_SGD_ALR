@@ -37,13 +37,9 @@ public class WaveManager : MonoBehaviour
             }
         }
     }
-
-    void Start()
-    {
-        StartLevel();
-    }
     public void StartLevel()
     {
+        Time.timeScale = 1f;
         StartCoroutine(StartWave());
     }
 
